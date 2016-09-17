@@ -12,10 +12,26 @@ files="vimrc bashrc"    # list of files/folders to symlink in homedir
 
 ##########
 
-# create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~/ ..."
-mkdir -p $olddir
-echo "... done."
+
+# In the list of file...
+for file in $files; do
+
+    # ... check for already existing files which are not symbolic links...
+    if [ -f ~/.$file ] && [ ! -L ~/.$file ]; then
+
+        # ... In this case, delete dotfiles_old directory in homedir, if it exists...
+        if [ -d $olddir ]; then
+            echo "Removing existing $olddir directory..."
+            rm -r -f $olddir
+            echo "... done."
+        fi
+
+        # ... then create a new empty one
+        echo "Creating $olddir for backup of any existing dotfiles in ~/ ..."
+        mkdir -p $olddir
+        echo "... done."
+    fi
+done
 
 # change to the dotfiles directory
 echo "Changing to the $dir directory..."
@@ -24,8 +40,16 @@ echo "... done."
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
-    echo "Moving existing dotfile ~/.$file from ~ to $olddir"
-    mv ~/.$file $olddir
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+    if [ -f ~/.$file ] && [ ! -L ~/.$file ]; then
+        echo "Moving existing dotfile .$file from ~ to $olddir"
+        mv ~/.$file $olddir
+        echo "Creating symlink to $file in home directory."
+        ln -s $dir/$file ~/.$file
+    elif [ -L ~/.$file ] && [ -L ~/.$file ]; then
+        echo "Replacing symlink to $file in home directory."
+        ln -sf $dir/$file ~/.$file
+    else
+        echo "Creating symlink to $file in home directory."
+        ln -s $dir/$file ~/.$file
+    fi
 done
