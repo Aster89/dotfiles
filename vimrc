@@ -23,20 +23,17 @@ Plugin 'gmarik/Vundle.vim'
 
 " useful plugins
 Plugin 'L9'
-Plugin 'honza/vim-snippets'
-Plugin 'tpopo/vim-fugitive'
+Plugin 'Aster89/vim-snippets' " I added gdscript.snippet, and I'm waiting for the approval
+Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
-"Plugin 'vim-latex/vim-latex'
-Plugin 'Aster89/vim-latex' " I pulled in a useful pull request by dfshan/vim-latex
+Plugin 'vim-latex/vim-latex'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'ron89/thesaurus_query.vim'
 Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'sjl/gundo.vim'
-"Plugin 'sqwishy/vim-gdscript' 
-"Plugin 'quabug/vim-gdscript' 
-Plugin 'Aster89/vim-gdscript' 
+Plugin 'quabug/vim-gdscript' 
 
 call vundle#end()  " required
 filetype plugin indent on " required
@@ -69,6 +66,11 @@ nnoremap OD :GundoToggle<CR>
 let g:ycm_complete_in_comments=1
 let g:ycm_complete_in_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
+
+let g:snips_author = "Enrico Maria De Angelis"
+let g:snips_email = "enricomaria.deangelis@unina.it"
+let g:snips_github = "https://github.com/Aster89"
+
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<F8>"
 let g:UltiSnipsJumpForwardTrigger="<F8>"
