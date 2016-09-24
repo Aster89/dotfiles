@@ -140,13 +140,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 
 
-# settings for the touchpad
-synclient TapButton2=2
-synclient TapButton3=3
-synclient LockedDrags=1
-synclient LockedDragTimeout=200
-synclient PalmDetect=1
-# settings for the touchpad
-
-
 export PATH="$HOME/bin:$PATH"
