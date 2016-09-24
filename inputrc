@@ -1,0 +1,18 @@
+$include /etc/inputrc
+
+# **************************************************************
+# mappings for making up and down arrow searching through history
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+
+# Use tab to cycle through all the possible completions.
+"\t": menu-complete
+# Use shift-tab to cycle backward.
+"\e[Z": menu-complete-backward
+#"\e[Z": "\e-1\C-i"
+
+# case insensitive completion
+set completion-ignore-case on
+# **************************************************************
