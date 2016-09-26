@@ -26,6 +26,7 @@ Plugin 'L9'
 Plugin 'Aster89/vim-snippets' " I added gdscript.snippet, and I'm waiting for the approval
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
+Plugin 'powerline/fonts'
 Plugin 'vim-latex/vim-latex'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
@@ -34,6 +35,7 @@ Plugin 'ron89/thesaurus_query.vim'
 Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'sjl/gundo.vim'
 Plugin 'quabug/vim-gdscript' 
+Plugin 'vim-scripts/ScrollColors' 
 
 call vundle#end()  " required
 filetype plugin indent on " required
@@ -116,7 +118,7 @@ set grepprg=grep\ -nH\ $*
 " *****************************************************************
 " other options
 " *****************************************************************
-colo enrico " set the colorscheme
+colo pablo " set the colorscheme
 
 set nu      " show line numbers
 set cul     " Highlight the screen line of the cursor with CursorLine
