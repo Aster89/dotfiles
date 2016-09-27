@@ -150,3 +150,5 @@ synclient PalmDetect=1
 
 
 export PATH="$HOME/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
