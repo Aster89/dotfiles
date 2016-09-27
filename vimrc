@@ -36,6 +36,7 @@ Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'sjl/gundo.vim'
 Plugin 'quabug/vim-gdscript' 
 Plugin 'vim-scripts/ScrollColors' 
+Plugin 'k-takata/matchit.vim' 
 
 call vundle#end()  " required
 filetype plugin indent on " required
