@@ -142,3 +142,6 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:/usr/local/MATLAB/R2015b/bin"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="/opt/OpenMPI-2.0.1/bin:$PATH"
+export LD_LIBRARY_PATH="/opt/OpenMPI-2.0.1/lib"

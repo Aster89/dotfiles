@@ -27,7 +27,8 @@ Plugin 'Aster89/vim-snippets' " I added gdscript.snippet, and I'm waiting for th
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
 Plugin 'powerline/fonts'
-Plugin 'vim-latex/vim-latex'
+"Plugin 'vim-latex/vim-latex'
+Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
@@ -119,7 +120,7 @@ set grepprg=grep\ -nH\ $*
 " *****************************************************************
 " other options
 " *****************************************************************
-colo pablo " set the colorscheme
+"colo pablo " set the colorscheme
 
 set nu      " show line numbers
 set cul     " Highlight the screen line of the cursor with CursorLine
