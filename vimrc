@@ -61,6 +61,7 @@ filetype plugin indent on " required
 " *****************************************************************
 " some settings related to plugins
 " *****************************************************************
+let g:gundo_prefer_python3=1
 let g:gundo_preview_bottom=1
 let g:gundo_width=30
 let g:gundo_close_on_revert=1
@@ -120,7 +121,7 @@ set grepprg=grep\ -nH\ $*
 " *****************************************************************
 " other options
 " *****************************************************************
-"colo pablo " set the colorscheme
+colo pablo " set the colorscheme
 
 set nu      " show line numbers
 set cul     " Highlight the screen line of the cursor with CursorLine
