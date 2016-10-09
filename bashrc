@@ -135,13 +135,23 @@ export PATH=/opt/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:
 
 
 
+# to use go from anywhere
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+# to make Vim the default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 export PATH=$PATH:/usr/local/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
+# to use matlab from anywhere
 export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:/usr/local/MATLAB/R2015b/bin"
 
+# added by fzf fuzzy completion plugin
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-export PATH="/opt/OpenMPI-2.0.1/bin:$PATH"
-export LD_LIBRARY_PATH="/opt/OpenMPI-2.0.1/lib"
+# get a git-tip
+/usr/bin/git-tip
