@@ -123,10 +123,11 @@ set grepprg=grep\ -nH\ $*
 " *****************************************************************
 colo pablo " set the colorscheme
 
+set noea    " avoid resizing when a new window is opened or closed
 set nu      " show line numbers
 set cul     " Highlight the screen line of the cursor with CursorLine
 "set cuc    " Highlight the screen column of the cursor with CursorColumn
-"
+
 set is      " highlights the matched pattern while typing a search command
 set nohls   " disable searched pattern highlight (the highlight is kept while typing the search pattern
 set sc      " show incomplete commands, such as y2, in the bottom line (under the status bar)
