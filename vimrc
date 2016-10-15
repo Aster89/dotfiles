@@ -26,7 +26,9 @@ Plugin 'L9'
 Plugin 'Aster89/vim-snippets' " I added gdscript.snippet, and I'm waiting for the approval
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
-Plugin 'vim-latex/vim-latex'
+Plugin 'powerline/fonts'
+"Plugin 'vim-latex/vim-latex'
+Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
@@ -34,6 +36,8 @@ Plugin 'ron89/thesaurus_query.vim'
 Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'sjl/gundo.vim'
 Plugin 'quabug/vim-gdscript' 
+Plugin 'vim-scripts/ScrollColors' 
+Plugin 'k-takata/matchit.vim' 
 
 call vundle#end()  " required
 filetype plugin indent on " required
@@ -116,7 +120,7 @@ set grepprg=grep\ -nH\ $*
 " *****************************************************************
 " other options
 " *****************************************************************
-colo enrico " set the colorscheme
+"colo pablo " set the colorscheme
 
 set nu      " show line numbers
 set cul     " Highlight the screen line of the cursor with CursorLine
@@ -226,6 +230,7 @@ endfunc
 " *****************************************************************
 " file type detection
 " *****************************************************************
+au BufNewFile,BufRead *.tikz set filetype=tex
 " what follows serves to detect the filetype of the current buffer
 " even if no extensions has been set (.sh, .c, ...) [cf. Learning 
 " the vi and Vim editors, page 205 e following]

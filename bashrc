@@ -138,6 +138,10 @@ export PATH=/opt/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:
 export PATH=$PATH:/usr/local/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-
-
 export PATH="$HOME/bin:$PATH"
+export PATH="$PATH:/usr/local/MATLAB/R2015b/bin"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="/opt/OpenMPI-2.0.1/bin:$PATH"
+export LD_LIBRARY_PATH="/opt/OpenMPI-2.0.1/lib"
