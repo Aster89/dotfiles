@@ -232,6 +232,7 @@ endfunc
 " *****************************************************************
 " file type detection
 " *****************************************************************
+au BufNewFile,BufRead *.tikz set filetype=tex
 " what follows serves to detect the filetype of the current buffer
 " even if no extensions has been set (.sh, .c, ...) [cf. Learning 
 " the vi and Vim editors, page 205 e following]
