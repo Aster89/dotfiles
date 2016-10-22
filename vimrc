@@ -4,7 +4,6 @@
 " *****************************************************************
 " *****************************************************************
 
-
 " *****************************************************************
 " from https://github.com/VundleVim/Vundle.vim
 " *****************************************************************
@@ -27,6 +26,9 @@ Plugin 'Aster89/vim-snippets' " I added gdscript.snippet, and I'm waiting for th
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
 Plugin 'powerline/fonts'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ryanoasis/nerd-fonts'
+Plugin 'ryanoasis/vim-devicons'
 "Plugin 'vim-latex/vim-latex'
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
@@ -61,6 +63,7 @@ filetype plugin indent on " required
 " *****************************************************************
 " some settings related to plugins
 " *****************************************************************
+" Gundo
 let g:gundo_prefer_python3=1
 let g:gundo_preview_bottom=1
 let g:gundo_width=30
@@ -68,14 +71,24 @@ let g:gundo_close_on_revert=1
 " ^[OD is the left arrow
 nnoremap OD :GundoToggle<CR>
 
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nnoremap OC :NERDTreeToggle<CR>
+
+" YouCompleteMe
 let g:ycm_complete_in_comments=1
 let g:ycm_complete_in_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 
+" vim-snippets
 let g:snips_author = "Enrico Maria De Angelis"
 let g:snips_email = "enricomaria.deangelis@unina.it"
 let g:snips_github = "https://github.com/Aster89"
 
+" UltiSnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<F8>"
 let g:UltiSnipsJumpForwardTrigger="<F8>"
@@ -87,6 +100,7 @@ let g:UltiSnipsEditSplit="vertical"
 " *****************************************************************
 " some settings related to plugins
 " *****************************************************************
+
 
 
 " *****************************************************************
@@ -255,14 +269,22 @@ let g:lightline = {
       \   'readonly': 'LightLineReadonly',
       \   'fugitive': 'LightLineFugitive',
       \   'filename': 'LightLineFilename',
-      \   'fileformat': 'LightLineFileformat',
-      \   'filetype': 'LightLineFiletype',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
       \   'fileencoding': 'LightLineFileencoding',
       \   'mode': 'LightLineMode',
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
+      \ 'separator': { 'left': "", 'right': "" },
+      \ 'subseparator': { 'left': "", 'right': "" }
       \ }
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
 
 function! LightLineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
