@@ -92,7 +92,7 @@ let g:snips_github = "https://github.com/Aster89"
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<F8>"
 let g:UltiSnipsJumpForwardTrigger="<F8>"
-let g:UltiSnipsJumpBackwardTrigger="<F7>"
+"let g:UltiSnipsJumpBackwardTrigger="<F7>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
