@@ -118,7 +118,10 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 " *****************************************************************
 " other options
 " *****************************************************************
-colo pablo " set the colorscheme
+set bs=2    " backspace over everything in insert mode
+
+syntax on   " activate the syntax coloring
+colo pablo  " set the colorscheme
 
 set noea    " avoid resizing when a new window is opened or closed
 set nu      " show line numbers
