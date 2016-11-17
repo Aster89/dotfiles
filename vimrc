@@ -27,7 +27,11 @@ Plugin 'Aster89/vim-snippets' " I added gdscript.snippet, and I'm waiting for th
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
 Plugin 'powerline/fonts'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ryanoasis/nerd-fonts'
+Plugin 'ryanoasis/vim-devicons'
 "Plugin 'vim-latex/vim-latex'
+"Plugin 'Aster89/vimtex'
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
@@ -61,20 +65,32 @@ filetype plugin indent on " required
 " *****************************************************************
 " some settings related to plugins
 " *****************************************************************
+" Gundo
+let g:gundo_prefer_python3=1
 let g:gundo_preview_bottom=1
 let g:gundo_width=30
 let g:gundo_close_on_revert=1
 " ^[OD is the left arrow
 nnoremap OD :GundoToggle<CR>
 
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nnoremap OC :NERDTreeToggle<CR>
+
+" YouCompleteMe
 let g:ycm_complete_in_comments=1
 let g:ycm_complete_in_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 
+" vim-snippets
 let g:snips_author = "Enrico Maria De Angelis"
 let g:snips_email = "enricomaria.deangelis@unina.it"
 let g:snips_github = "https://github.com/Aster89"
 
+" UltiSnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<F8>"
 let g:UltiSnipsJumpForwardTrigger="<F8>"
@@ -89,38 +105,20 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 " *****************************************************************
-" from http://vim-latex.sourceforge.net/
+" vimtex ptions
 " *****************************************************************
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-" to compile directly in pdflatex with vim-latex when \ll is pressed
-let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 -shell-escape -src-specials -interaction=nonstopmode $*'
-let g:Tex_DefaultTargetFormat='pdf'
-
-" to see the preview with the pdfviewer okular when \ls is pressed
-let g:Tex_ViewRule_pdf = 'okular --unique'
-set grepprg=grep\ -nH\ $*
+"let g:vimtex_view_general_viewer = 'okular'
+"let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
+"let g:vimtex_view_general_options_latexmk = '--unique'
 " *****************************************************************
-" from http://vim-latex.sourceforge.net/
+" vimtex options
 " *****************************************************************
 
 
 " *****************************************************************
 " other options
 " *****************************************************************
-"colo pablo " set the colorscheme
+colo pablo " set the colorscheme
 
 set nu      " show line numbers
 set cul     " Highlight the screen line of the cursor with CursorLine
@@ -130,6 +128,7 @@ set is      " highlights the matched pattern while typing a search command
 set nohls   " disable searched pattern highlight (the highlight is kept while typing the search pattern
 set sc      " show incomplete commands, such as y2, in the bottom line (under the status bar)
 set nows    " don't wrap around the end of the file when searching
+set noea    " not resizing the windows when opening or closing windows
 
 set ic      " ignore case
 set wic     " incore case when completing file names and directories
@@ -278,6 +277,14 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
 
 function! LightLineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
