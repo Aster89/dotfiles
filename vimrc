@@ -150,6 +150,8 @@ hi search ctermbg=white ctermfg=black
 hi comment ctermfg=darkgrey
 
 set list lcs=tab:\|\ " to show tabs as vertical lines
+
+set dictionary+=/usr/share/dict/italian
 " *****************************************************************
 " other options
 " *****************************************************************
