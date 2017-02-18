@@ -152,6 +152,12 @@ export PATH="$PATH:/usr/local/MATLAB/R2015b/bin"
 
 # added by fzf fuzzy completion plugin
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# to make fzf search hidden files
+export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 
 # get a git-tip
 /usr/bin/git-tip
+
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
+

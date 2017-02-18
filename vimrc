@@ -22,14 +22,13 @@ Plugin 'gmarik/Vundle.vim'
 
 " useful plugins
 Plugin 'L9'
-Plugin 'Aster89/vim-snippets' " I added gdscript.snippet, and I'm waiting for the approval
+Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
 Plugin 'powerline/fonts'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/nerd-fonts'
 Plugin 'ryanoasis/vim-devicons'
-"Plugin 'vim-latex/vim-latex'
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
@@ -82,6 +81,7 @@ nnoremap OC :NERDTreeToggle<CR>
 let g:ycm_complete_in_comments=1
 let g:ycm_complete_in_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_seed_identifiers_with_syntax=1
 
 " vim-snippets
 let g:snips_author = "Enrico Maria De Angelis"
@@ -92,7 +92,7 @@ let g:snips_github = "https://github.com/Aster89"
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<F8>"
 let g:UltiSnipsJumpForwardTrigger="<F8>"
-"let g:UltiSnipsJumpBackwardTrigger="<F7>"
+let g:UltiSnipsJumpBackwardTrigger="<S-F8>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
@@ -106,9 +106,12 @@ let g:UltiSnipsEditSplit="vertical"
 " *****************************************************************
 " vimtex options
 " *****************************************************************
+let g:vimtex_delim_stopline = 1000
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual = 1
 " *****************************************************************
 " vimtex options
 " *****************************************************************
