@@ -18,7 +18,7 @@ call vundle#begin()
 " "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " useful plugins
 Plugin 'L9'
@@ -29,7 +29,7 @@ Plugin 'powerline/fonts'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/nerd-fonts'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'lervag/vimtex'
+Plugin 'Aster89/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
@@ -66,7 +66,7 @@ filetype plugin indent on " required
 let g:gundo_prefer_python3=1
 let g:gundo_preview_bottom=1
 let g:gundo_width=30
-let g:gundo_close_on_revert=1
+let g:gundo_close_on_revert=0
 " ^[OD is the left arrow
 nnoremap OD :GundoToggle<CR>
 
@@ -112,6 +112,8 @@ let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_manual = 1
+let g:vimtex_complete_close_braces = 1
+let g:tex_flavor = 'latex'
 " *****************************************************************
 " vimtex options
 " *****************************************************************
