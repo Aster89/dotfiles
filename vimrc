@@ -82,6 +82,7 @@ let g:ycm_complete_in_comments=1
 let g:ycm_complete_in_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_filetype_blacklist = {}
 
 " vim-snippets
 let g:snips_author = "Enrico Maria De Angelis"
@@ -97,15 +98,8 @@ let g:UltiSnipsJumpBackwardTrigger="<S-F8>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-" *****************************************************************
-" some settings related to plugins
-" *****************************************************************
 
-
-
-" *****************************************************************
 " vimtex options
-" *****************************************************************
 let g:vimtex_delim_stopline = 1000
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
@@ -115,9 +109,8 @@ let g:vimtex_fold_manual = 1
 let g:vimtex_complete_close_braces = 1
 let g:tex_flavor = 'latex'
 " *****************************************************************
-" vimtex options
+" some settings related to plugins
 " *****************************************************************
-
 
 
 " *****************************************************************
@@ -132,6 +125,7 @@ set noea    " avoid resizing when a new window is opened or closed
 set nu      " show line numbers
 set cul     " Highlight the screen line of the cursor with CursorLine
 "set cuc    " Highlight the screen column of the cursor with CursorColumn
+set so=2    " minimal number of screen lines to keep above and below the cursor
 
 set is      " highlights the matched pattern while typing a search command
 set nohls   " disable searched pattern highlight (the highlight is kept while typing the search pattern
@@ -183,8 +177,9 @@ nnoremap \ :ThesaurusQueryReplaceCurrentWord<CR>
 " *****************************************************************
 " compile and run
 " *****************************************************************
+set aw " auto write all files before executing make
 " Ctrl-C to write all, clear the shell, and compile
-map  :wall:!clear:!make
+map  :!clear:make
 " Ctrl-\ to run a program with mpirun with a given number of processes
 nnoremap  :<C-u>call MpirnArg(v:count)<cr>
 function! MpirnArg(n)
@@ -240,6 +235,7 @@ endfunc
 " file type detection
 " *****************************************************************
 au BufNewFile,BufRead *.tikz set filetype=tex
+
 " what follows serves to detect the filetype of the current buffer
 " even if no extensions has been set (.sh, .c, ...) [cf. Learning 
 " the vi and Vim editors, page 205 e following]
