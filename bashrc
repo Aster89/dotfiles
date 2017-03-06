@@ -145,3 +145,4 @@ export PATH="$PATH:/usr/local/MATLAB/R2015b/bin"
 
 export PATH="/opt/OpenMPI-2.0.1/bin:$PATH"
 export LD_LIBRARY_PATH="/opt/OpenMPI-2.0.1/lib"
+source /opt/openfoam4/etc/bashrc
