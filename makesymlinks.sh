@@ -9,7 +9,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc bashrc inputrc latexmkrc"    # list of files/folders to symlink in homedir
+files="vimrc bashrc inputrc latexmkrc gitconfig"    # list of files/folders to symlink in homedir
 
 ##########
 
