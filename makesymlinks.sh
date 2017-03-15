@@ -10,7 +10,7 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 # list of files/folders to symlink in homedir
-files="vimrc bashrc inputrc bash_profile update_time.sh"
+files="vimrc bashrc inputrc bash_profile gitconfig update_time.sh"
 
 ##########
 

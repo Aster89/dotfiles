@@ -1,0 +1,11 @@
+[core]
+	ignorecase = true
+[user]
+	email = enricomaria.deangelis@hotmail.it
+	name = Enrico Maria De Angelis
+[credential]
+	helper = cache --timeout 86400
+[alias]
+    dog = log --all --decorate --oneline --graph
+    loog = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    looog = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
