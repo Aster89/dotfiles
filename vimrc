@@ -119,6 +119,7 @@ let g:tex_flavor = 'latex'
 set bs=2    " backspace over everything in insert mode
 
 syntax on   " activate the syntax coloring
+set smc=0   " (0 = infinite) maximum column in which to search for syntax items
 colo pablo  " set the colorscheme
 
 set noea    " avoid resizing when a new window is opened or closed
@@ -162,11 +163,34 @@ set dictionary+=/usr/share/dict/italian
 " ò, à, ù and è are in the same relative positions
 " as left, down, right and up arrows, so I map them
 " to increase/decreas horizontally and vertically the windows
-map ù :vert res +1 
-map ò :vert res -1
-map è :res +1
-map à :res -1
-
+nnoremap ù :vert res +1<cr>
+nnoremap ò :vert res -1<cr>
+nnoremap è :res +1<cr>
+nnoremap à :res -1<cr>
+nnoremap OA :call Toggle_ic()<cr>
+fun! Toggle_ic()
+    if &ic == 0
+        set ic
+        echo 'Ignore case ON'
+    elseif &ic == 1
+        set noic
+        echo 'Ignore case OFF'
+    else
+        echo 'ERROR: how can be possible that &ic is not false nor true?'
+    endif
+endfun
+nnoremap OB :call Toggle_paste()<cr>
+fun! Toggle_paste()
+    if &paste == 0
+        set paste
+        echo 'paste ON'
+    elseif &paste == 1
+        set nopaste
+        echo 'paste OFF'
+    else
+        echo 'ERROR: how can be possible that &paste is not false nor true?'
+    endif
+endfun
 "nnoremap \ :OnlineThesaurusCurrentWord<CR>
 nnoremap \ :ThesaurusQueryReplaceCurrentWord<CR>
 " *****************************************************************
