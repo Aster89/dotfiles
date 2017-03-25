@@ -75,7 +75,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    alias ls='ls --color=auto -F'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -88,7 +88,7 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -144,7 +144,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 export PATH=$PATH:/usr/local/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export LD_LIBRARY_PATH=/usr/local/lib
 
 # to use matlab from anywhere
 export PATH="$HOME/bin:$PATH"
@@ -161,3 +161,10 @@ export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
 
+# gtk
+#CPPFLAGS="-I/opt/gtk/include"
+#LDFLAGS="-L/opt/gtk/lib"
+#PKG_CONFIG_PATH="/opt/gtk/lib/pkgconfig"
+#export CPPFLAGS LDFLAGS PKG_CONFIG_PATH
+#export LD_LIBRARY_PATH="/opt/gtk/lib:$LD_LIBRARY_PATH"
+#export PATH="/opt/gtk/bin:$PATH"
