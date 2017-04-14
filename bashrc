@@ -140,7 +140,7 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 
 # to make Vim the default editor
-export VISUAL=vim
+export VISUAL=vi
 export EDITOR="$VISUAL"
 
 export PATH=$PATH:/usr/local/bin
