@@ -24,6 +24,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'L9'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-abolish'
 Plugin 'itchyny/lightline.vim'
 Plugin 'powerline/fonts'
 Plugin 'scrooloose/nerdtree'
@@ -38,7 +39,9 @@ Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'sjl/gundo.vim'
 Plugin 'quabug/vim-gdscript' 
 Plugin 'vim-scripts/ScrollColors' 
-Plugin 'k-takata/matchit.vim' 
+Plugin 'k-takata/matchit.vim'
+Plugin 'mtth/scratch.vim'
+Plugin 'Aster89/super-succotash'
 
 call vundle#end()  " required
 filetype plugin indent on " required
@@ -101,9 +104,10 @@ let g:UltiSnipsEditSplit="vertical"
 
 " vimtex options
 let g:vimtex_delim_stopline = 1000
-let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_viewer = 'zathura'
+"let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
+"let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_manual = 1
 let g:vimtex_complete_close_braces = 1
@@ -152,6 +156,9 @@ hi comment ctermfg=darkgrey
 set list lcs=tab:\|\ " to show tabs as vertical lines
 
 set dictionary+=/usr/share/dict/italian
+
+" make K call :help instead of UNIX's man on the word under the cursor
+au FileType vim setl keywordprg=:help
 " *****************************************************************
 " other options
 " *****************************************************************
@@ -167,7 +174,19 @@ nnoremap ù :vert res +1<cr>
 nnoremap ò :vert res -1<cr>
 nnoremap è :res +1<cr>
 nnoremap à :res -1<cr>
-nnoremap OA :call Toggle_ic()<cr>
+nnoremap <S-Up> :call Toggle_hls()<cr>
+fun! Toggle_hls()
+    if &hls == 0
+        set hls
+        echo 'Highlight search ON'
+    elseif &hls == 1
+        set nohls
+        echo 'Highlight search OFF'
+    else
+        echo 'ERROR: how can be possible that &hls is not false nor true?'
+    endif
+endfun
+nnoremap <Up> :call Toggle_ic()<cr>
 fun! Toggle_ic()
     if &ic == 0
         set ic
@@ -179,7 +198,7 @@ fun! Toggle_ic()
         echo 'ERROR: how can be possible that &ic is not false nor true?'
     endif
 endfun
-nnoremap OB :call Toggle_paste()<cr>
+nnoremap <Down> :call Toggle_paste()<cr>
 fun! Toggle_paste()
     if &paste == 0
         set paste
