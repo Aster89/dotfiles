@@ -132,6 +132,7 @@ alias updmap-sys='sudo /opt/texbin/updmap-sys'
 alias fmtutil-sys='sudo /opt/texbin/fmtutil-sys'
 export PATH=/opt/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 # Addition for TeX Live (following Enrico Gregorio's guide)
+export PATH=/usr/local/texlive/2017/bin/x86_64-linux:$PATH
 
 
 
@@ -142,6 +143,7 @@ export PATH=$PATH:$GOROOT/bin
 # to make Vim the default editor
 export VISUAL=vi
 export EDITOR="$VISUAL"
+alias vi='vi --servername vi'
 
 export PATH=$PATH:/usr/local/bin
 export LD_LIBRARY_PATH=/usr/local/lib
@@ -168,3 +170,4 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
 #export CPPFLAGS LDFLAGS PKG_CONFIG_PATH
 #export LD_LIBRARY_PATH="/opt/gtk/lib:$LD_LIBRARY_PATH"
 #export PATH="/opt/gtk/bin:$PATH"
+export PATH="/opt/scorep/bin:/opt/scalasca/bin:$PATH"
