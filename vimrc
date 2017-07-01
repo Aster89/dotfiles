@@ -167,6 +167,9 @@ au FileType vim setl keywordprg=:help
 " *****************************************************************
 " some mappings
 " *****************************************************************
+" <Tab> is already the same as CTRL-I, so I map <S-Tab> to CTRL-O,
+" which is the opposite of CTRL-I
+nnoremap <S-Tab> <C-O>
 " ò, à, ù and è are in the same relative positions
 " as left, down, right and up arrows, so I map them
 " to increase/decreas horizontally and vertically the windows
