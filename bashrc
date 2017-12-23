@@ -133,7 +133,10 @@ alias fmtutil-sys='sudo /opt/texbin/fmtutil-sys'
 export PATH=/opt/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 # Addition for TeX Live (following Enrico Gregorio's guide)
 
-
+export VISUAL=vi
+export EDITOR="$VISUAL"
+# next alias is useful for backward search with VimTeX
+alias vi='vi --servername vi'
 
 export PATH=$PATH:/usr/local/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
@@ -146,3 +149,5 @@ export PATH="$PATH:/usr/local/MATLAB/R2015b/bin"
 export PATH="/opt/OpenMPI-2.0.1/bin:$PATH"
 export LD_LIBRARY_PATH="/opt/OpenMPI-2.0.1/lib"
 source /opt/openfoam4/etc/bashrc
+
+PATH=/opt/scorep/bin:/opt/scalasca/bin:$PATH
